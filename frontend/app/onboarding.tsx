@@ -1,7 +1,7 @@
 import { useState } from "react";
 import {
   View, Text, StyleSheet, TextInput, Pressable, KeyboardAvoidingView,
-  Platform, ScrollView, ActivityIndicator, Keyboard, TouchableWithoutFeedback,
+  Platform, ScrollView, ActivityIndicator,
 } from "react-native";
 import { Image } from "expo-image";
 import { LinearGradient } from "expo-linear-gradient";
@@ -70,15 +70,14 @@ export default function Onboarding() {
       </View>
 
       <KeyboardAvoidingView
-        behavior={Platform.OS === "ios" ? "padding" : "height"}
+        behavior={Platform.OS === "ios" ? "padding" : undefined}
         style={{ flex: 1 }}
       >
-        <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-          <ScrollView
-            contentContainerStyle={styles.form}
-            keyboardShouldPersistTaps="handled"
-            showsVerticalScrollIndicator={false}
-          >
+        <ScrollView
+          contentContainerStyle={styles.form}
+          keyboardShouldPersistTaps="handled"
+          showsVerticalScrollIndicator={false}
+        >
             <Text style={styles.formTitle}>Continue as</Text>
             <View style={styles.roleRow}>
               <Pressable
@@ -193,7 +192,6 @@ export default function Onboarding() {
               By continuing you agree to Last-Mile's terms. Fixed-hub rides only.
             </Text>
           </ScrollView>
-        </TouchableWithoutFeedback>
       </KeyboardAvoidingView>
     </View>
   );
